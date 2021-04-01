@@ -18,7 +18,7 @@ has_many :items
 
 ## items
 
-|Column      |Type     |Options             |
+|Column         |Type     |Options             |
 |---------------|---------|--------------------|
 |product_name   |string   |null: false         |
 |explanation    |text     |null: false         |
@@ -28,18 +28,18 @@ has_many :items
 |area_id        |integer  |null: false         |
 |ship_id        |integer  |null: false         |
 |price          |integer  |null: false         |
-|user           |reference|foreignkey_key true |
+|user           |reference|foreign_key true |
 
 ### Association
-belongs_to : user,order
-
+belongs_to : user
+has_many :orders
 
 ## orders
 
 |Column |Type     |Options              |
 |-------|---------|---------------------|
-|user   |reference| foreignkey_key true |
-|irem   |regerence| foreignkey_key true |
+|user   |reference| foreign_key true |
+|item   |reference| foreign_key true |
 
 ### Association
 belongs_to :address,item,user
@@ -55,8 +55,7 @@ belongs_to :address,item,user
 |house_number  |string   |null: false     |
 |building_name |string   |                |
 |phone_number  |string   |null: false     |
-|user          |reference|foreign_key true|
-|item          |reference|foreign_key true|
+
 
 ### Association
 belongs_to :order
