@@ -5,12 +5,12 @@
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="28" value="Addresses" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=33;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="203" y="337" width="217" height="153" as="geometry">
+                    <mxGeometry x="203" y="337" width="217" height="133" as="geometry">
                         <mxRectangle x="156" y="222" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="65" value="&lt;span&gt;postal_code&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;prefecture&lt;/span&gt;(integer型)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;municipalities&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;house_number&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;building_name&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;phone_number&lt;/span&gt;(string型,NOT NULL)&lt;br&gt;&lt;div&gt;user_id(reference型)&lt;/div&gt;&lt;div&gt;irem_id(regerence型)&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="28" vertex="1">
-                    <mxGeometry y="33" width="217" height="120" as="geometry"/>
+                <mxCell id="65" value="&lt;span&gt;postal_code&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;prefecture&lt;/span&gt;(integer型)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;municipalities&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;house_number&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;building_name&lt;/span&gt;(string型,NOT NULL)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;span&gt;phone_number&lt;/span&gt;(string型,NOT NULL)&lt;br&gt;&lt;br&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="28" vertex="1">
+                    <mxGeometry y="33" width="217" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="60" y="-40" width="210" height="180" as="geometry"/>
@@ -19,13 +19,13 @@
                     <mxGeometry y="26" width="210" height="154" as="geometry"/>
                 </mxCell>
                 <mxCell id="44" value="Users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="-40" width="220" height="180" as="geometry"/>
+                    <mxGeometry x="350" y="-40" width="230" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="44" source="45" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="nickname(string型,NOT NULL)&#10;mailaddress(string型,NOT NULL)&#10;password(string型,NOT NULL)&#10;last_name_kanji(string型,NOT NULL)&#10;first_name_kanji(string型,NOT NULL)&#10;last_name_kana(string型,NOT NULL)&#10;first_name_kana(string型,NOT NULL)&#10;year_birth(integer型)&#10;month_birth(integer型)&#10;day_birth(integer型)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="44" vertex="1">
-                    <mxGeometry y="26" width="220" height="154" as="geometry"/>
+                <mxCell id="45" value="nickname(string型,NOT NULL)&#10;email(string型,NOT NULL,unique: true)&#10;password(string型,NOT NULL)&#10;last_name_kanji(string型,NOT NULL)&#10;first_name_kanji(string型,NOT NULL)&#10;last_name_kana(string型,NOT NULL)&#10;first_name_kana(string型,NOT NULL)&#10;birthday(date型)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#FFFFFF;" parent="44" vertex="1">
+                    <mxGeometry y="26" width="230" height="154" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.318;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;strokeWidth=2;" parent="1" source="47" target="41" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -42,7 +42,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.685;entryY=1.008;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endArrow=ERone;endFill=0;startArrow=ERoneToMany;startFill=0;" parent="1" target="45" edge="1">
+                <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.685;entryY=1.008;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;" parent="1" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="690" y="270" as="targetPoint"/>
                         <Array as="points">
@@ -56,7 +56,7 @@
                         <mxRectangle x="200" y="230" width="70" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="75" value="&lt;div&gt;&lt;span&gt;user_id(reference型)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;irem_id(regerence型)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="47">
+                <mxCell id="75" value="&lt;div&gt;&lt;span&gt;user(reference型)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;item(regerence型)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="47">
                     <mxGeometry y="26" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="49" value="addoressには外部キー&#10;orders の外部キー" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="1" vertex="1">
