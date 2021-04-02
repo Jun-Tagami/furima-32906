@@ -18,17 +18,17 @@ has_many :items
 
 ## items
 
-|Column         |Type     |Options             |
-|---------------|---------|--------------------|
-|product_name   |string   |null: false         |
-|explanation    |text     |null: false         |
-|category_id    |integer  |null: false         |
-|status_id      |integer  |null: false         |
-|delivery_fee_id|integer  |null: false         |
-|area_id        |integer  |null: false         |
-|ship_id        |integer  |null: false         |
-|price          |integer  |null: false         |
-|user           |reference|foreign_key true |
+|Column         |Type      |Options             |
+|---------------|----------|--------------------|
+|product_name   |string    |null: false         |
+|explanation    |text      |null: false         |
+|category_id    |integer   |null: false         |
+|status_id      |integer   |null: false         |
+|delivery_fee_id|integer   |null: false         |
+|area_id        |integer   |null: false         |
+|ship_id        |integer   |null: false         |
+|price          |integer   |null: false         |
+|user           |references|foreign_key true |
 
 ### Association
 belongs_to : user
@@ -42,8 +42,9 @@ has_many :orders
 |item   |reference| foreign_key true |
 
 ### Association
-belongs_to :address,item,user
-
+belongs_to :address
+belongs_to :item
+belongs_to :user
 
 ## Addresses
 
@@ -55,6 +56,7 @@ belongs_to :address,item,user
 |house_number  |string   |null: false     |
 |building_name |string   |                |
 |phone_number  |string   |null: false     |
+|order         |reference|                |
 
 
 ### Association
