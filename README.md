@@ -32,7 +32,7 @@ has_many :items
 
 ### Association
 belongs_to : user
-has_many :orders
+has_one :order
 
 ## orders
 
@@ -42,7 +42,7 @@ has_many :orders
 |item   |reference| foreign_key true |
 
 ### Association
-belongs_to :address
+has_one :address
 belongs_to :item
 belongs_to :user
 
@@ -56,7 +56,7 @@ belongs_to :user
 |house_number  |string   |null: false     |
 |building_name |string   |                |
 |phone_number  |string   |null: false     |
-|order         |reference|                |
+|order         |reference|foreign_key true|
 
 
 ### Association
