@@ -8,8 +8,8 @@ class User < ApplicationRecord
   # - ニックネームが必須であること
   validates :nickname, presence: true
   # - パスワードは、半角英数字混合での入力が必須であること
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'パスワードは、半角英数字混合での入力が必須' 
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'パスワードは、半角英数字混合での入力が必須'
 
   # ## 新規登録/本人情報確認
   # - ユーザー本名は、名字と名前がそれぞれ必須であること
@@ -30,5 +30,4 @@ class User < ApplicationRecord
 
   # - 生年月日が必須であること
   validates :birthday, presence: true
-
 end
