@@ -43,7 +43,7 @@ class User < ApplicationRecord
     validates :birthday
   end
 
-  with_options format: { with: /\A[ぁ-んァ-ヶ一-龥]+$+\z/ } do
+  with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+$+\z/ } do
     validates :last_name_kanji
     validates :first_name_kanji
   end
