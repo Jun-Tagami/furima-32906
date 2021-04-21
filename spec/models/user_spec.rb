@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it "すべての情報が入力されていれば登録できること" do
+      it 'すべての情報が入力されていれば登録できること' do
         expect(@user).to be_valid
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
 
       it 'メールアドレスは、@を含む必要があること' do
@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       it 'パスワードは、半角英数字混合での入力が必須であること' do
         @user.password = '1111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は、半角英数字混合での入力が必須")
+        expect(@user.errors.full_messages).to include('Password は、半角英数字混合での入力が必須')
       end
 
       it 'パスワードは、確認用を含めて2回入力すること' do
@@ -75,14 +75,14 @@ RSpec.describe User, type: :model do
         @user.password = 'aaaaaaa'
         @user.password_confirmation = 'aaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は、半角英数字混合での入力が必須")
+        expect(@user.errors.full_messages).to include('Password は、半角英数字混合での入力が必須')
       end
 
       it 'パスワードは全角では登録できないこと' do
         @user.password = '１１１１１１１ａ'
         @user.password_confirmation = '１１１１１１１ａ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は、半角英数字混合での入力が必須")
+        expect(@user.errors.full_messages).to include('Password は、半角英数字混合での入力が必須')
       end
 
       #  ## 新規登録/本人情報確認
@@ -131,7 +131,7 @@ RSpec.describe User, type: :model do
       it 'ユーザー本名（名前）のフリガナは、全角（カタカナ）での入力が必須であること' do
         @user.first_name_kana = 'ﾊﾝｶｸｶﾀｶﾅ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid")
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
 
       it '生年月日が必須であること' do
@@ -139,6 +139,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
-   end
+    end
   end
 end
