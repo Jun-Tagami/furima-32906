@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  ##############ここから下は復習用###############
+  has_many :items
+
+  # #############ここから下は復習用###############
   # ## 新規登録/ユーザー情報
   # - ニックネームが必須であること
   # validates :nickname, presence: true
@@ -31,8 +33,7 @@ class User < ApplicationRecord
 
   # - 生年月日が必須であること
   # validates :birthday, presence: true
- ##############ここから上は復習用###############
-
+  # #############ここから上は復習用###############
 
   with_options presence: true do
     validates :nickname
@@ -52,5 +53,4 @@ class User < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
   end
-
 end
