@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   # #############ここから下は復習用###############
   # ## 新規登録/ユーザー情報
   # - ニックネームが必須であること

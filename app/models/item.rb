@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :ship
 
+  belongs_to :user
+
   # - 商品名が必須であること
   # 商品の説明が必須であること
   # - カテゴリーの情報が必須であること
@@ -20,11 +22,6 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :product_name
     validates :explanation
-    validates :category
-    validates :status
-    validates :delivery_fee_id
-    validates :area
-    validates :ship
     validates :price
     validates :image
   end

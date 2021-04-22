@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @item = FactoryBot.build(:item)
+    user = FactoryBot.create(:user)
+    @item = FactoryBot.build(:item, user_id: user.id)
   end
 
   describe '商品作成' do
@@ -28,31 +29,61 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が必須であること' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category is not a number")
       end
+
+      it 'category_idを0と選択すると登録できない' do
+         @item.category_id = 0
+         @item.valid?
+         expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
+
+      it 'status_idを0と選択すると登録できない' do
+         @item.category_id = 0
+         @item.valid?
+         expect(@item.errors.full_messages).to include("Category must be other than 0")
+       end
+
+      it 'delivery_fee_idを0と選択すると登録できない' do
+          @item.category_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
+
+       it 'area_idを0と選択すると登録できない' do
+          @item.category_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category must be other than 0")
+        end
+
+       it 'ship_idを0と選択すると登録できない' do
+         @item.category_id = 0
+         @item.valid?
+         expect(@item.errors.full_messages).to include("Category must be other than 0")
+       end
 
       it '商品の状態についての情報が必須であること' do
         @item.status_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status is not a number")
       end
 
       it '配送料の負担についての情報が必須であること' do
         @item.delivery_fee_id = ''
         @item.valid?
-        # expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery fee is not a number")
       end
 
       it '発送元の地域についての情報が必須であること' do
         @item.area_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area can't be blank")
+        expect(@item.errors.full_messages).to include("Area is not a number")
       end
 
       it '発送までの日数についての情報が必須であること' do
         @item.ship_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship can't be blank")
+        expect(@item.errors.full_messages).to include("Ship is not a number")
       end
 
       it '価格についての情報が必須であること' do
@@ -77,6 +108,18 @@ RSpec.describe Item, type: :model do
         @item.price = '３００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price は半角数字で入力してください')
+      end
+
+      it '販売価格は英数混合では登録できないこと' do
+        @item.price = '1a1a1a'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price は半角数字で入力してください')
+      end
+
+      it '販売価格は半角英語のみでは登録できないこと' do
+        @item.price = 'aaaaa'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は半角数字で入力してください")
       end
 
       it '商品画像を1枚つけることが必須であること' do

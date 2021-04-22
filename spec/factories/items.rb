@@ -8,6 +8,7 @@ FactoryBot.define do
     area_id                { 2 }
     ship_id                { 2 }
     price                  { 400 }
+    association :user
 
     after(:build) do |message|
       message.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
