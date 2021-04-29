@@ -7,7 +7,7 @@
       <%= @item.product_name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <div class="sold-out">
         <span>Sold Out!!</span>
@@ -106,9 +106,8 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+  <%#復習用→ 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>
