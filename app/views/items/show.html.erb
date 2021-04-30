@@ -29,7 +29,7 @@
 
           <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
           <p class="or-text">or</p>
-          <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+          <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
 
         <% else %>
           <%# 商品が売れていない場合はこちらを表示しましょう %>
@@ -107,7 +107,7 @@
     </a>
   </div>
   <%#復習用→ 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
+  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>Z
 </div>
 
 <%= render "shared/footer" %>
