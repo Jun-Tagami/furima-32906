@@ -27,7 +27,7 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it '配送先の情報として、都道府県が必須であること' do
-        @order_address.area_id = ''
+        @order_address.area_id = 0
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Area is not a number')
       end

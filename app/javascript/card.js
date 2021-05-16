@@ -28,7 +28,7 @@ const pay = () => {
 
        document.getElementById("charge-form").submit();
     });
-  });console.log("カード情報トークン化のためのJavaScript");
+  });
 };
 
 window.addEventListener("load", pay);

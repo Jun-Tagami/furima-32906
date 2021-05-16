@@ -5,16 +5,14 @@ class OrdersController < ApplicationController
   # 復習用→ログアウト状態のユーザーは、URLを直接入力して商品購入ページに遷移しようとすると、商品の販売状況に関わらずログインページに遷移すること
 
   def index
-    @item = Item.find(params[:item_id])
     # 復習用→フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @order_address = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
-      # pay_item
+      pay_item
       @order_address.save
       redirect_to root_path
     else
@@ -27,7 +25,7 @@ private
 
 def order_params
   # 復習用→ 後々、requireを入力する（今はerrorができるので抜いている）
-  params.require(:order_address).permit(:item_id, :postal_code, :area_id, :municipalities, :house_number, :building_name, :phone_number).merge(
+  params.require(:order_address).permit(:postal_code, :area_id, :municipalities, :house_number, :building_name, :phone_number).merge(
     user_id: current_user.id, item_id: params[:item_id], token: params[:token]
   )
 end
