@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
   before_action :set_item_user, only: [:edit, :update, :destroy]
+  before_action :set_order, only: [:edit, :update]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -24,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -53,6 +55,11 @@ class ItemsController < ApplicationController
   def set_item_user
     redirect_to action: :index unless @item.user.id == current_user.id
   end
+
+  def set_order
+    redirect_to action: :index unless @item.order == nil
+  end
+
 end
 
 class Form
