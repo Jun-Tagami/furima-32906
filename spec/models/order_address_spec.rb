@@ -29,7 +29,7 @@ RSpec.describe OrderAddress, type: :model do
       it '配送先の情報として、都道府県が必須であること' do
         @order_address.area_id = 0
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Area is not a number')
+        expect(@order_address.errors.full_messages).to include('Area must be other than 0')
       end
 
       it '配送先の情報として、市区町村が必須であること' do
@@ -67,6 +67,13 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number Maximum is 11 characters')
       end
+
+      it '電話番号が英数混合では登録できないこと' do
+        @order_address.phone_number = 'a901234567890'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone number Input only number')
+      end
+
 
       it 'tokenが空では登録できないこと' do
         @order_address.token = nil
