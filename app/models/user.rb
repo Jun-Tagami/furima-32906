@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :orders
 
   # #############ここから下は復習用###############
   # ## 新規登録/ユーザー情報
