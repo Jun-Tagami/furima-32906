@@ -33,7 +33,7 @@ end
 # 復習用→ログイン状態の出品者が、URLを直接入力して自身の出品した商品購入ページに遷移しようとすると、トップページに遷移すること→自分が出品した商品の購入には行きたくない
 # 復習用→ログイン状態のユーザーが、URLを直接入力して売却済み商品の商品購入ページへ遷移しようとすると、トップページに遷移すること
 
-def orders
+def ordersopen
   @item = Item.find(params[:item_id])
   redirect_to root_path if @item.user.id == current_user.id || !@item.order.nil?
 end
@@ -41,7 +41,7 @@ end
 def pay_item
   Payjp.api_key = ENV['PAYJP_SECRET_KEY']
   Payjp::Charge.create(
-    amount: order_params[:price],  # 商品の値段
+    amount: @item.price,  # 商品の値段
     card: order_params[:token],    # カードトークン
     currency: 'jpy'                 # 通貨の種類（日本円）
   )
